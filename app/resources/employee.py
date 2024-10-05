@@ -1,9 +1,5 @@
-from flask import Flask, request
-from flask_restful import Resource, Api
-
-# Create a Flask application instance
-app = Flask(__name__)
-api = Api(app)
+from flask import request
+from flask_restful import Resource
 
 # Example in-memory database
 employees = {
@@ -12,7 +8,6 @@ employees = {
 }
 
 
-# Create a Resource class to handle API requests
 class Employee(Resource):
     def get(self, employee_id):
         """Handle GET request for fetching employee details by ID"""
@@ -62,11 +57,3 @@ class Employee(Resource):
 
         del employees[employee_id]
         return {"status": "success", "message": "Employee deleted"}
-
-
-# Set up API routes
-api.add_resource(Employee, "/employee/<int:employee_id>", "/employee")
-
-# Start the Flask application
-if __name__ == "__main__":
-    app.run(debug=True)

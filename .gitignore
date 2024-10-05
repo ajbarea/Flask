@@ -1,1 +1,4 @@
+*.pyc
+**/db.yml
+*.vscode
 setup.cfg

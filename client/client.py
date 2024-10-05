@@ -1,5 +1,3 @@
-# client.py
-
 import requests
 import json
 
